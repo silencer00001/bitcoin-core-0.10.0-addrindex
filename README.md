@@ -3,7 +3,7 @@ Bitcoin Core v0.10.0 with addrindex (Binaries)
 
 ##Q&A
 
-**Q: What's this?** A: Various binaries of Bitcoin Core 0.10.0 with jmcorgan addrindex patch. It's very similar to the other page with binaries I built [here](https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta), but the only difference is that Bitcoin is v0.10.0. 
+**Q: What's this?** A: Various binaries of Bitcoin Core 0.10.0 with jmcorgan addrindex patch. It's very similar to the other page with binaries I built [here](https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta), but the only difference is that Bitcoin Core is v0.10.0. 
 
 Like those binaries, these can be used with [counterpartyd](https://github.com/CounterpartyXCP/counterpartyd) for Windows, Debian and Raspbian, but also stand-alone (however if you wanted to do that you'd probably want to download Bitcoin Core from the usual place like bitcoin.org rather than have a patched version).
 
