@@ -49,7 +49,7 @@ How to switch back to the original files or uninstall:
 
 * In case you decide to switch or uninstall, stop the program, find your original files in `C:\Program Files (x86)\Bitcoin\original` and copy them over the patched files in their respective locations.
 
-###Linux
+###Ubuntu 14.04
 TODO
 
 ###Raspbian
