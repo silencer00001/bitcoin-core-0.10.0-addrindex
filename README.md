@@ -22,7 +22,7 @@ A: No clue, I just finished building them. Counterparty server (`counterpartyd`)
 
 **Q: Any gotchas?**  
 
-A: Yes, in terms of Bitcoin Core. This version has important differences. Read the release notes [here](https://github.com/bitcoin/bitcoin/blob/0.10/doc/release-notes.md). 
+A: Yes, in terms of Bitcoin Core. This version has important differences, as the indexes aren't the same so if you want to play with this one, it's best to use a different data directory from your current v0.x (if you want to keep the both). Read the release notes [here](https://github.com/bitcoin/bitcoin/blob/0.10/doc/release-notes.md). 
 
 In terms of what this patch adds to Bitcoin Core 0.10.0, there are no gotchas. All addrindex does is it allows `bitcoind` to build another index (of all seen addresses (`addrindex`)) so you can have another index in addition to the built-in, optional transaction index (`txindex`). When you start a regular Bitcoin Core you may (if it's enabled) see the first line, and when you start these binaries you may see the both: 
 
