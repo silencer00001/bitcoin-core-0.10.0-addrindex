@@ -18,7 +18,7 @@ Ingridients used on Windows: Boost 1.57.0, BerkelyDB 4.8.30, GMPlib 6.0.0a, libp
 
 **Q: Is it stable?**  
 
-A: Counterparty daemon (`counterpartyd`) does not officially support this version yet, but it can work with it. 
+A: Counterparty daemon (`counterpartyd`) does not officially support this version yet, but it (v9.49.3) can work with it. 
 
 **Q: Any gotchas?**  
 
@@ -61,7 +61,7 @@ This is the first Bitcoin Core installer I ever built so I'd call it EXPERIMENTA
 Two things, though: (1) Uninstall any Bitcoin Core/Qt that you have prior to installing this one, and (2) When prompted, make sure to read `README.txt` and do **not** accept to run Bitcoin Core (more details in the included `README.txt`, but basically you don't want to start Bitcoin Core without `addrindex` enabled as that would defy the idea of using this installer in the first place).
 
 Known issues: 
-* Installer (incorrectly) suggests install path `C:\Program Files (x86)\Bitcoin Addrindex` or somesuch, but the package is still installed correctly (in the same place where Bitcoin Core is supposed to go. It's a mistake in packager and can be ignored. Maybe I'll fix it one day.
+* Installer (incorrectly) suggests install path `C:\Program Files (x86)\Bitcoin Addrindex` or somesuch, but the package is still installed correctly (in the same place where Bitcoin Core is supposed to go). It's a mistake in packaging and can be ignored.
 
 ###Ubuntu 14.04
 TODO
