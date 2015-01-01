@@ -64,7 +64,56 @@ Known issues:
 * Installer (incorrectly) suggests install path `C:\Program Files (x86)\Bitcoin Addrindex` or somesuch, but the package is still installed correctly (in the same place where Bitcoin Core is supposed to go). It's a mistake in packaging and can be ignored.
 
 ###Ubuntu 14.04
-TODO
+####Install
+There are various scenarios and some of them can get complicated. I am not going to describe all of them since this is a niche package.
+#####Clean Ubuntu 14.04 System
+Before you install this package, you need to install some dependencies:
+```
+sudo apt-get install libboost-chrono-dev libboost-filesystem1.54-dev \
+libboost-program-options-dev libboost-python-dev libboost-system1.54-dev \
+libboost-system-dev libboost-thread1.54.0 -y
+```
+Then install two more dependencies that aren't available from the default repos:
+```
+wget https://launchpad.net/~bitcoin/+archive/ubuntu/bitcoin/+files/libdb4.8_4.8.30-trusty1_amd64.deb
+wget https://launchpad.net/~bitcoin/+archive/ubuntu/bitcoin/+files/libdb4.8%2B%2B_4.8.30-trusty1_amd64.deb
+sudo dpkg -i libdb4.8*.deb
+```
+If you already have Bitcoin Core 0.9.x **with addrindex**, uninstall it first (`sudo apt-get remove`), then continue here.
+```
+dpkg -i bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb
+```
+
+You may want to create these symbolic links (optional). Federated Node users already have them by default.
+```
+sudo ln -sf /usr/local/bin/bitcoind /usr/bin/bitcoind
+sudo ln -sf /usr/local/bin/bitcoin-cli /usr/bin/bitcoin-cli
+```
+#####Federated Node with Bitcoin Core 0.9.2 (jmcorgan addrindex)
+If you're installing this on a system with Federated Node code, all above dependencies should be present. You should just uninstall the current Bitcoin Core (0.9.2) package and install Bitcoin Core 0.10.0 addrindex package.
+####Uninstall
+Stop the service and remove it.
+`sudo apt-get remove bitcoin-core-0.10.0-addrindex`
+####Sample configuration file and start, stop commands
+* Configuration file
+These are intended for the users of stand-alone `counterpartyd`. Federated Node users should leave the existing configuration file in place and shouldn't need to use these commands to start/stop service.
+```
+$ cat $HOME/.bitcoin/bitcoin.conf
+server=1
+daemon=1
+rpcuser=bitcoinrpc
+rpcpassword=8M7PRvxBKxx3oRbKt3VyDUL8rUWzHM6dZBEuHCnk5GAk
+txindex=1
+addrindex=1
+```
+* Start service (run with `-txindex -addrindex -reindex` once if you have existing blockchain that hasn't been indexed before):
+```
+bitcoind --conf="$HOME/.bitcoin/bitcoin.conf"
+```
+* Stop service:
+```
+/usr/local/bin/bitcoin-cli --conf="$HOME/.bitcoin/bitcoin.conf" stop
+```
 
 ###Raspbian
 TODO
@@ -82,5 +131,5 @@ TODO
 
 ###Linux
 
-* Ubuntu 14.04: TODO
+* Ubuntu 14.04 (No GUI): https://www.dropbox.com/s/ns19onq07le96vn/bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb (`MD5: d8a2e3e0865e570bb2743c735f70f32c  bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb`)
 * Rasbpian (Debian Jesse): TODO
