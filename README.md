@@ -81,7 +81,7 @@ sudo dpkg -i libdb4.8*.deb
 ```
 If you already have Bitcoin Core 0.9.x **with addrindex**, uninstall it first (`sudo apt-get remove`), then continue here.
 ```
-dpkg -i bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb
+sudo dpkg -i bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb
 ```
 
 You may want to create these symbolic links (optional). Federated Node users already have them by default.
