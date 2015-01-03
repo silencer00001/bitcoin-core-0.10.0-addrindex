@@ -99,6 +99,8 @@ sudo dpkg -i sudo dpkg -i bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb # dow
 Now restart your services. Verify everything is fine with `sudo tail -f /home/xcp/.bitcoin-testnet/testnet3/debug.log` (testnet example). 
 
 To install this package on a fresh Fed Node you could also modify setup scripts for Federated Node to install this binary and save you some time.
+####Reinstall
+If you need to rebuild the Federated Node, you can remove this binary if you will, then repeat installation later as explained above. What happens now is that Federated Node setup script errs when it tries to install v0.9.2 over v0.10.0, and setup continues, so in actuality it is possible to leave v0.10.0 in place (although reinstall cannot be done completely unattended because the error must be acknowledged).
 ####Uninstall
 Stop the service and remove the package: `sudo apt-get bitcoin-core-0.10.0-addrindex`
 ####Sample configuration file and start, stop commands
