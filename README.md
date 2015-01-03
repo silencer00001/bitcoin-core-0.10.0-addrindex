@@ -18,11 +18,11 @@ Ingridients used on Windows: Boost 1.57.0, BerkelyDB 4.8.30, GMPlib 6.0.0a, libp
 
 **Q: Is it stable?**  
 
-A: Counterparty daemon (`counterpartyd`) does not officially support this version yet, but it (v9.49.3) can work with it. 
+A: Counterparty daemon (`counterpartyd`) does not officially support this version yet, but it (v9.49.3) can work with it on both Windows and Linux. 
 
 **Q: Any gotchas?**  
 
-A: Yes, in terms of Bitcoin Core. This version has important differences, as the indexes aren't the same so if you want to play with this one, it's best to use a different data directory from your current v0.x (if you want to keep the both). Read the release notes [here](https://github.com/bitcoin/bitcoin/blob/0.10/doc/release-notes.md). 
+A: Yes, in terms of Bitcoin Core. This version has important differences, as the indexes aren't the same so if you want to play with this one, it's best to use a different data directory from your current v0.x (if you want to keep the both). Read the release notes [here](https://github.com/bitcoin/bitcoin/blob/0.10/doc/release-notes.md). The main and obvious practical change is that with v0.10 you must use `bitcoin-cli` to interface with `bitcoind`.
 
 In terms of what this patch adds to Bitcoin Core 0.10.0, there are no gotchas. All addrindex does is it allows `bitcoind` to build another index (of all seen addresses (`addrindex`)) so you can have another index in addition to the built-in, optional transaction index (`txindex`). When you start a regular Bitcoin Core you may (if it's enabled) see the first line, and when you start these binaries you may see the both: 
 
@@ -83,17 +83,23 @@ If you already have Bitcoin Core 0.9.x **with addrindex**, uninstall it first (`
 ```
 sudo dpkg -i bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb
 ```
-
 You may want to create these symbolic links (optional). Federated Node users already have them by default.
 ```
 sudo ln -sf /usr/local/bin/bitcoind /usr/bin/bitcoind
 sudo ln -sf /usr/local/bin/bitcoin-cli /usr/bin/bitcoin-cli
 ```
-#####Federated Node with Bitcoin Core 0.9.2 (jmcorgan addrindex)
-If you're installing this on a system with Federated Node code, all above dependencies should be present. You should just uninstall the current Bitcoin Core (0.9.2) package and install Bitcoin Core 0.10.0 addrindex package.
+#####Federated Node 9.49 with Bitcoin Core 0.9.2 (jmcorgan addrindex)
+If you're installing this on a system with Federated Node code, all above dependencies should be present. You should just stop all services that rely on Bitcoin Core, uninstall the current Bitcoin Core (0.9.2) and install Bitcoin Core 0.10.0 addrindex.
+```
+sudo sv stop counterpartyd-testnet
+sudo sv stop bitcoind-testnet
+sudo apt-get remove bitcoin.addrindex # uninstalls patched Bitcoin Core 0.9.2-1 installed by Fed Node
+sudo dpkg -i sudo dpkg -i bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb # download it on this site
+```
+Now restart your services. Verify everything is fine (again, this example is for testnet):
+To install this package on a fresh Fed Node you could also modify setup scripts for Federated Node to install this binary and save you some time.
 ####Uninstall
-Stop the service and remove it.
-`sudo apt-get remove bitcoin-core-0.10.0-addrindex`
+Stop the service and remove the package: `sudo apt-get bitcoin-core-0.10.0-addrindex`
 ####Sample configuration file and start, stop commands
 * Configuration file
 These are intended for the users of stand-alone `counterpartyd`. Federated Node users should leave the existing configuration file in place and shouldn't need to use these commands to start/stop service.
@@ -105,6 +111,8 @@ rpcuser=bitcoinrpc
 rpcpassword=8M7PRvxBKxx3oRbKt3VyDUL8rUWzHM6dZBEuHCnk5GAk
 txindex=1
 addrindex=1
+rpcthreads=1000
+rpctimeout=300
 ```
 * Start service (run with `-txindex -addrindex -reindex` once if you have existing blockchain that hasn't been indexed before):
 ```
