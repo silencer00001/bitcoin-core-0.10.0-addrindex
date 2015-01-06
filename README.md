@@ -139,9 +139,10 @@ TODO
 * Windows (with GUI, without wallet): https://www.dropbox.com/s/tjbzdyjrs76l90e/bitcoin-core-0.10.0-addrindex-for-windows-with-gui-without-wallet.zip (`MD5: 34FFF54206E3E166765B60B7F952AAD8 bitcoin-core-0.10.0-addrindex-for-windows-with-gui-without-wallet.zip`)
 * Windows (without wallet and without GUI): https://www.dropbox.com/s/0aiyubdofbxd5vz/bitcoin-core-0.10.0-addrindex-for-windows-no-wallet-no-gui.zip (`MD5: 86F4FC13E68496FD7F760311794D110C bitcoin-core-0.10.0-addrindex-for-windows-no-wallet-no-gui.zip`)
 * Windows Installer (with everything): https://www.dropbox.com/s/kuiulrj68y8vgbf/Bitcoin%20Core%20addrindex%200.10.0.0.msi (`MD5: 7CAEA1BFF7B96107DC6F3FFBECA645EE Bitcoin Core addrindex 0.10.0.0.msi`)
-* Windows binaries from the same source built deterministically  on Github by the repo owner: https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0
+* Windows binaries from the same source built deterministically on Github by the repo owner: https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0
 
 ###Linux
 
 * Ubuntu 14.04 (No GUI): https://www.dropbox.com/s/ns19onq07le96vn/bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb (`MD5: d8a2e3e0865e570bb2743c735f70f32c  bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb`)
+* Ubuntu 14.04 binaries from the same source built deterministicallyon Github by the repo owner: https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0
 * Rasbpian (Debian Jesse): TODO
