@@ -3,6 +3,10 @@ Bitcoin Core v0.10.0.0 with addrindex (Binaries)
 
 ##Q&A
 
+**NOTICE**: On Jan 9, 2015 Counterparty started reccommending deterministically built binaries from [this Github repo](https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0). Information below will remain because:
+* How-to information is relevant and not necessarily available elsewhere. Instructions below apply to my binaries but because they're built from the same repository as the reccommended packages, they should be helpful to those who use reccommended binaries as well.
+* I intend to provide a Raspbian package and keep the page updated with Counterparty-related information.
+
 **Q: What's this?** A: Various binaries of Bitcoin Core 0.10.0 with jmcorgan addrindex patch. It's very similar to what I put on the other page with binaries I built [here](https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta), but the only difference is that Bitcoin Core is version 0.10.0.0. If you install one of these binaries with a GUI you'll see `Bitcoin Core version v0.10.0.0-fb4298f (32-bit)` in **Help > About Bitcoin Core**.
 
 Like those binaries, these would be needed for [counterpartyd](https://github.com/CounterpartyXCP/counterpartyd) for Windows, Debian and Raspbian, but they can also be used stand-alone (but if you wanted to do that you'd probably want to download Bitcoin Core from the usual place like bitcoin.org rather than have a patched version).
@@ -139,10 +143,8 @@ TODO
 * Windows (with GUI, without wallet): https://www.dropbox.com/s/tjbzdyjrs76l90e/bitcoin-core-0.10.0-addrindex-for-windows-with-gui-without-wallet.zip (`MD5: 34FFF54206E3E166765B60B7F952AAD8 bitcoin-core-0.10.0-addrindex-for-windows-with-gui-without-wallet.zip`)
 * Windows (without wallet and without GUI): https://www.dropbox.com/s/0aiyubdofbxd5vz/bitcoin-core-0.10.0-addrindex-for-windows-no-wallet-no-gui.zip (`MD5: 86F4FC13E68496FD7F760311794D110C bitcoin-core-0.10.0-addrindex-for-windows-no-wallet-no-gui.zip`)
 * Windows Installer (with everything): https://www.dropbox.com/s/kuiulrj68y8vgbf/Bitcoin%20Core%20addrindex%200.10.0.0.msi (`MD5: 7CAEA1BFF7B96107DC6F3FFBECA645EE Bitcoin Core addrindex 0.10.0.0.msi`)
-* Windows binaries from the same source built deterministically on Github by the repo owner: https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0
 
 ###Linux
 
 * Ubuntu 14.04 (No GUI): https://www.dropbox.com/s/ns19onq07le96vn/bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb (`MD5: d8a2e3e0865e570bb2743c735f70f32c  bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb`)
-* Ubuntu 14.04 binaries from the same source built deterministicallyon Github by the repo owner: https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0
 * Rasbpian (Debian Jesse): TODO
