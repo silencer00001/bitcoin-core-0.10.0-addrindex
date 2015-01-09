@@ -24,7 +24,7 @@ Ingridients used on Windows: Boost 1.57.0, BerkelyDB 4.8.30, GMPlib 6.0.0a, libp
 
 **Q: Is it stable?**  
 
-A: Counterparty daemon (`counterpartyd`) now officially supports this version. As mentioned at the very top, the official reccommended build is from another repo.
+A: Counterparty daemon (`counterpartyd`) now officially supports this version. As mentioned at the very top, officialy reccommended builds are the same version, but come from the same Github repo that hosts the patched source.
 
 **Q: Any gotchas?**  
 
