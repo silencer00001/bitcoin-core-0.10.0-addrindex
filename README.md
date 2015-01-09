@@ -75,7 +75,8 @@ Before you install this package, you need to install some dependencies:
 ```
 sudo apt-get install libboost-chrono-dev libboost-filesystem1.54-dev \
 libboost-program-options-dev libboost-python-dev libboost-system1.54-dev \
-libboost-system-dev libboost-thread1.54.0 -y
+libboost-system-dev libboost-thread1.54.0 build-essential libdb++-dev \
+libboost-test-dev autoconf -y
 ```
 Then install two more dependencies that aren't available from the default repos:
 ```
@@ -83,7 +84,7 @@ wget https://launchpad.net/~bitcoin/+archive/ubuntu/bitcoin/+files/libdb4.8_4.8.
 wget https://launchpad.net/~bitcoin/+archive/ubuntu/bitcoin/+files/libdb4.8%2B%2B_4.8.30-trusty1_amd64.deb
 sudo dpkg -i libdb4.8*.deb
 ```
-If you already have Bitcoin Core 0.9.x **with addrindex**, uninstall it first (`sudo apt-get remove`), then continue here.
+If you already have Bitcoin Core 0.9.x **with addrindex**, uninstall it first (`sudo apt-get remove`). Note that Fed Node's package may be named `bitcoin.addrindex`. Then install this package.
 ```
 sudo dpkg -i bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb
 ```
