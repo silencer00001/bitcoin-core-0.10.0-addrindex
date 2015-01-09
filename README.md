@@ -7,7 +7,9 @@ Bitcoin Core v0.10.0.0 with addrindex (Binaries)
 * How-to information is relevant and not necessarily available elsewhere. Instructions below apply to my binaries but because they're built from the same repository as the reccommended packages, they should be helpful to those who use reccommended binaries as well.
 * I intend to provide a Raspbian package and keep the page updated with Counterparty-related information.
 
-**Q: What's this?** A: Various binaries of Bitcoin Core 0.10.0 with jmcorgan addrindex patch. It's very similar to what I put on the other page with binaries I built [here](https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta), but the only difference is that Bitcoin Core is version 0.10.0.0. If you install one of these binaries with a GUI you'll see `Bitcoin Core version v0.10.0.0-fb4298f (32-bit)` in **Help > About Bitcoin Core**.
+**Q: What's this?** 
+
+A: Various binaries of Bitcoin Core 0.10.0 with jmcorgan addrindex patch. It's very similar to what I put on the other page with binaries I built [here](https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta), but the only difference is that Bitcoin Core is version 0.10.0.0. If you install one of these binaries with a GUI you'll see `Bitcoin Core version v0.10.0.0-fb4298f (32-bit)` in **Help > About Bitcoin Core**.
 
 Like those binaries, these would be needed for [counterpartyd](https://github.com/CounterpartyXCP/counterpartyd) for Windows, Debian and Raspbian, but they can also be used stand-alone (but if you wanted to do that you'd probably want to download Bitcoin Core from the usual place like bitcoin.org rather than have a patched version).
 
@@ -22,7 +24,7 @@ Ingridients used on Windows: Boost 1.57.0, BerkelyDB 4.8.30, GMPlib 6.0.0a, libp
 
 **Q: Is it stable?**  
 
-A: Counterparty daemon (`counterpartyd`) does not officially support this version yet, but it (v9.49.3) can work with it on both Windows and Linux. 
+A: Counterparty daemon (`counterpartyd`) now officially supports this version. As mentioned at the very top, the official reccommended build is from another repo.
 
 **Q: Any gotchas?**  
 
