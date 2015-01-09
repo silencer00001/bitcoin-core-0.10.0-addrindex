@@ -98,7 +98,7 @@ If you're installing this on a system with Federated Node code, all above depend
 sudo sv stop counterpartyd-testnet
 sudo sv stop bitcoind-testnet
 sudo apt-get remove bitcoin.addrindex # uninstalls patched Bitcoin Core 0.9.2-1 installed by Fed Node
-sudo dpkg -i sudo dpkg -i bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb # download it on this site
+sudo dpkg -i bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb # this package you can download here
 ```
 Now restart your services. Verify everything is fine with `sudo tail -f /home/xcp/.bitcoin-testnet/testnet3/debug.log` (testnet example). 
 
