@@ -3,9 +3,10 @@ Bitcoin Core v0.10.0.0 with addrindex (Binaries)
 
 ##Q&A
 
-**NOTICE**: On Jan 9, 2015 Counterparty started reccommending deterministically built binaries from [this Github repo](https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0). Information below will remain because:
-* How-to information is relevant and not necessarily available elsewhere. Instructions below apply to my binaries but because they're built from the same repository as the reccommended packages, they should be helpful to those who use reccommended binaries as well.
-* I intend to provide a Raspbian package and keep the page updated with Counterparty-related information.
+**NOTICE**:
+* On Jan 9, 2015 Counterparty started reccommending deterministically built binaries from [this Github repo](https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0). 
+* Because of issues following a recent OpenSSL update (see [this](http://sourceforge.net/p/bitcoin/mailman/message/33221963/) discussion), it may be a good idea to see how that plays out and maybe use recommended binaries from the link above (once they get updated). Counterparty users should follow the official advice when deciding to upgrade/change their OpenSSL, Bitcoin Core or Counterparty code.
+* Information below will for now remain available because these are packages and not just binaries and I intend to keep the page up to date.
 
 **Q: What's this?** 
 
