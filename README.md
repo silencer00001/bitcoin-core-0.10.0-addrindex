@@ -135,7 +135,7 @@ bitcoind --conf="$HOME/.bitcoin/bitcoin.conf"
 
 ###Raspbian
 * Uninstall whatever other version of bitcoin-core or bitcoin-qt you may have
-* Make sure you have (at least) these packages: libssl1.0.0 libgcc1 libprotobuf9 libminiupnpc10 libboost-filesystem1.55.0 libboost-chrono1.55.0 libboost-filesystem1.55.0 libboost-program-options1.55.0 libboost-system1.55.0 libboost-thread1.55.0 libboost-test1.55.0`. The package wasn't built the smart way so you
+* Make sure you have (at least) these packages: libssl1.0.0, libgcc1, libprotobuf9, libminiupnpc10, libboost-filesystem1.55.0, libboost-chrono1.55.0, libboost-filesystem1.55.0, libboost-program-options1.55.0, libboost-system1.55.0, libboost-thread1.55.0, libboost-test1.55.0. This binary package wasn't built too smartly, so you need to be careful and "manually" ensure these dependencies are satisfied.
 * Install this binary with `sudo dpkg -i bitcoin-core-0.10.0_0.10.0-beta-addrindex_armhf.deb`
 * Optionally create symbolic links (see the two `sudo ln -sf` rows in the Ubuntu section above)
 * Install and uninstall procedure is basically the same as on Ubuntu 14.04: if you have existing blockchain data, run once from the console with `-reindex`, etc. 
@@ -155,4 +155,4 @@ bitcoind --conf="$HOME/.bitcoin/bitcoin.conf"
 ###Linux
 
 * Ubuntu 14.04 (No GUI): https://www.dropbox.com/s/ns19onq07le96vn/bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb (`MD5: d8a2e3e0865e570bb2743c735f70f32c  bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb`)
-* Rasbpian (Debian Jesse): https://www.dropbox.com/s/2cafu1ao8sfqhen/bitcoin-core-0.10.0_0.10.0-beta-addrindex_armhf.deb (`SHA256: 7574c041b7eff3690963fd559cddbb16a303901de6a93fb05f4fafdce3f906f3  bitcoin-core-0.10.0_0.10.0-beta-addrindex_armhf.deb`)
+* Rasbpian (Debian Jesse, with wallet, no GUI): https://www.dropbox.com/s/2cafu1ao8sfqhen/bitcoin-core-0.10.0_0.10.0-beta-addrindex_armhf.deb (`SHA256: 7574c041b7eff3690963fd559cddbb16a303901de6a93fb05f4fafdce3f906f3  bitcoin-core-0.10.0_0.10.0-beta-addrindex_armhf.deb`)
