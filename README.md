@@ -4,24 +4,24 @@ Bitcoin Core v0.10.0.0 with addrindex (Binaries)
 ##Q&A
 
 **NOTICE**:
-* On Jan 9, 2015 Counterparty started reccommending deterministically built binaries from [this Github repo](https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0). 
-* Because of issues following a recent OpenSSL update (see [this](http://sourceforge.net/p/bitcoin/mailman/message/33221963/) discussion), it may be a good idea to see how that plays out and maybe use recommended binaries from the link above (once they get updated). Counterparty users should follow the official advice when deciding to upgrade/change their OpenSSL, Bitcoin Core or Counterparty code.
-* Information below will for now remain available because these are packages and not just binaries and I intend to keep the page up to date.
+* On Jan 9, 2015 Counterparty started reccommending deterministically built Bitcoin Core 0.10.0 binaries from [this Github repo](https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0). 
 
 **Q: What's this?** 
 
-A: Various binaries of Bitcoin Core 0.10.0 with jmcorgan addrindex patch. It's very similar to what I put on the other page with binaries I built [here](https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta), but the only difference is that Bitcoin Core is version 0.10.0.0. If you install one of these binaries with a GUI you'll see `Bitcoin Core version v0.10.0.0-fb4298f (32-bit)` in **Help > About Bitcoin Core**.
+A: Various binaries of Bitcoin Core 0.10.0 with jmcorgan addrindex patch. It's very similar to what I put on the other page with binaries I built [here](https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta), but the only difference is that Bitcoin Core is v0.10.0.
 
-Like those binaries, these would be needed for [counterpartyd](https://github.com/CounterpartyXCP/counterpartyd) for Windows, Debian and Raspbian, but they can also be used stand-alone (but if you wanted to do that you'd probably want to download Bitcoin Core from the usual place like bitcoin.org rather than have a patched version).
+These can be used with [counterpartyd](https://github.com/CounterpartyXCP/counterpartyd) for Windows, Debian and Raspbian, but they can also be used stand-alone (but if you wanted to do that you'd probably want to download Bitcoin Core from the usual place like bitcoin.org rather than have a patched version).
 
 **Q: Where did source code come from and how did you build the binaries?**  
 
-A: It's the current (as of Dec 25, 2014) bitcoin master branch with jmcorgan's addrindex patch. You can get it this way here:
+A: It's the current (as of Jan 12, 2014) bitcoin master branch with jmcorgan's addrindex patch. You can get it this way here:
 `git clone --branch=addrindex https://github.com/btcdrak/bitcoin bitcoin-core-0.10.0-addrindex`.
 * Windows binaries were built **with and without** GUI and/or wallet support, using a 32-bit version of MinGW on Windows 7 x64.
 * Ubuntu and Raspbian bianaries were all built without wallet support, using the same approach that the Counterparty Federated Node setup script uses for Bitcoin Core 0.9.3 with necessary minor adjustments required for v0.10.0.
 
-Ingridients used on Windows: Boost 1.57.0, BerkelyDB 4.8.30, GMPlib 6.0.0a, libpng 1.6.14, OpenSSL 1.0.1j, Miniupnpc-1.9.20141128, Protocol Buffers 2.6.1, QRencode 3.4.4, Qt 5.3.2, gcc v4.9.2.
+* Ingridients used on Windows: Boost 1.57.0, BerkelyDB 4.8.30, GMPlib 6.0.0a, libpng 1.6.14, OpenSSL 1.0.1j, Miniupnpc-1.9.20141128, Protocol Buffers 2.6.1, QRencode 3.4.4, Qt 5.3.2, gcc v4.9.2.
+
+**NOTE**: Because of issues following a recent OpenSSL update (see [this](http://sourceforge.net/p/bitcoin/mailman/message/33221963/) discussion), extra caution is warranted. At the moment latest OpenSSL binaries haven't been released for Windows, Ubuntu 14.04 (Stable) and Raspbian (Stable). Bitcoin Core 0.10.0-rc2 (below it's available for Debian) supposedly can work with latest OpenSSL fixes.
 
 **Q: Is it stable?**  
 
@@ -44,7 +44,7 @@ If you want to be extra cautious, you can use a walletless version.
 
 ###Windows
 
-***Short***: Install a non-patched Bitcoin Core v0.10 and then replace its binaries with these patched binaries.
+***Short***: Install a non-patched Bitcoin Core v0.10.0 and then replace its binaries with these patched binaries (or use the Windows installer and manually create config file(s) `bitcoin.conf`.)
 
 ***Detailed***:
 
@@ -72,7 +72,7 @@ Known issues:
 
 ###Ubuntu 14.04
 ####Install
-There are various scenarios and some of them can get complicated. I am not going to describe all of them since this is a niche package.
+There are various scenarios and some of them can get complicated. I am not going to describe all of them since this is a niche package. **NOTE**: You *must* have OpenSSL 1.0.1k installed (`sudo apt-get update; sudo apt-get upgrade`). (Ubuntu back-ports OpenSSL versions so the fix is contained in their version `1.0.1f-ubuntu2.8`.)
 #####Clean Ubuntu 14.04 System
 Before you install this package, you need to install some dependencies:
 ```
@@ -81,17 +81,17 @@ libboost-program-options-dev libboost-python-dev libboost-system1.54-dev \
 libboost-system-dev libboost-thread1.54.0 build-essential libdb++-dev \
 libboost-test-dev autoconf -y
 ```
-Then install two more dependencies that aren't available from the default repos:
+Then install two more dependencies that aren't available in the official repos:
 ```
 wget https://launchpad.net/~bitcoin/+archive/ubuntu/bitcoin/+files/libdb4.8_4.8.30-trusty1_amd64.deb
 wget https://launchpad.net/~bitcoin/+archive/ubuntu/bitcoin/+files/libdb4.8%2B%2B_4.8.30-trusty1_amd64.deb
 sudo dpkg -i libdb4.8*.deb
 ```
-If you already have Bitcoin Core 0.9.x **with addrindex**, uninstall it first (`sudo apt-get remove`). Note that Fed Node's package may be named `bitcoin.addrindex`. Then install this package.
+If you already have Bitcoin Core 0.9.x **with addrindex**, uninstall it first (`sudo apt-get remove` followed by the package name (on Fed Node that is `bitcoin.addrindex` and in case of Bitcoin Core 0.10.0 addrindex beta downloaded from this site, `bitcoin-core-0.10.0`) and you'd remove the latter with `sudo dpkg -r bitcoin-core-0.10.0-addrindex`. Then install this package.
 ```
-sudo dpkg -i bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb
+sudo dpkg -i bitcoin-core-addrindex_0.10.0-rc2-addrindex_amd64.deb
 ```
-You may want to create these symbolic links (optional). Federated Node users already have them by default.
+You may want to create these symbolic links (optional, and unnecessary if you've done this before). Federated Node users already have them created by default.
 ```
 sudo ln -sf /usr/local/bin/bitcoind /usr/bin/bitcoind
 sudo ln -sf /usr/local/bin/bitcoin-cli /usr/bin/bitcoin-cli
@@ -102,7 +102,7 @@ If you're installing this on a system with Federated Node code, all above depend
 sudo sv stop counterpartyd-testnet
 sudo sv stop bitcoind-testnet
 sudo apt-get remove bitcoin.addrindex # uninstalls patched Bitcoin Core 0.9.2-1 installed by Fed Node
-sudo dpkg -i bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb # this package you can download here
+sudo dpkg -i bitcoin-core-addrindex_0.10.0-rc2-addrindex_amd64.deb # this package you can download here
 ```
 Now restart your services. Verify everything is fine with `sudo tail -f /home/xcp/.bitcoin-testnet/testnet3/debug.log` (testnet example). 
 
@@ -110,7 +110,7 @@ To install this package on a fresh Fed Node you could also modify setup scripts 
 ####Reinstall
 If you need to rebuild the Federated Node, you can remove this binary if you will, then repeat installation later as explained above. What happens now is that Federated Node setup script errs when it tries to install v0.9.2 over v0.10.0, and setup continues, so in actuality it is possible to leave v0.10.0 in place (although reinstall cannot be done completely unattended because the error must be acknowledged).
 ####Uninstall
-Stop the service and remove the package: `sudo apt-get bitcoin-core-0.10.0-addrindex`
+Stop the service and remove the package: `sudo apt-get bitcoin-core-addrindex`
 ####Sample configuration file and start, stop commands
 * Configuration file
 These are intended for the users of stand-alone `counterpartyd`. Federated Node users should leave the existing configuration file in place and shouldn't need to use these commands to start/stop service.
@@ -140,7 +140,7 @@ bitcoind --conf="$HOME/.bitcoin/bitcoin.conf"
 * Install this binary with `sudo dpkg -i bitcoin-core-0.10.0_0.10.0-beta-addrindex_armhf.deb`
 * Optionally create symbolic links (see the two `sudo ln -sf` rows in the Ubuntu section above)
 * Install and uninstall procedure is basically the same as on Ubuntu 14.04: if you have existing blockchain data, run once from the console with `-reindex`, etc. 
-* `rpcthreads` and `rpctimeout` could be set to much lower because of the less powerful hardware. In fact I would reccommend to use this only with testnet.
+* `rpcthreads` and `rpctimeout` could be set to a low value because of the less powerful hardware. In fact I would reccommend to use this only with testnet.
 
 ##Downloads
 
@@ -155,5 +155,5 @@ bitcoind --conf="$HOME/.bitcoin/bitcoin.conf"
 
 ###Linux
 
-* Ubuntu 14.04 (No GUI): https://www.dropbox.com/s/ns19onq07le96vn/bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb (`MD5: d8a2e3e0865e570bb2743c735f70f32c  bitcoin-core-0.10.0-addrindex_0.10.0-1_amd64.deb`)
-* Rasbpian (Debian Jesse, with wallet, no GUI): https://www.dropbox.com/s/2cafu1ao8sfqhen/bitcoin-core-0.10.0_0.10.0-beta-addrindex_armhf.deb (`SHA256: 7574c041b7eff3690963fd559cddbb16a303901de6a93fb05f4fafdce3f906f3  bitcoin-core-0.10.0_0.10.0-beta-addrindex_armhf.deb`)
+* Ubuntu 14.04 (No GUI, with wallet): https://www.dropbox.com/s/d4k6fe4j2x1ueep/bitcoin-core-addrindex_0.10.0-rc2-addrindex_amd64.deb (`SHA256: 772a006bbcb8f59844502bf102992b8af92dff3b6ac2fd9d0e000e94cfa9e540  bitcoin-core-addrindex_0.10.0-rc2-addrindex_amd64.deb`)
+* Rasbpian (Debian 8 (Jessie), no GUI, with wallet): https://www.dropbox.com/s/2cafu1ao8sfqhen/bitcoin-core-0.10.0_0.10.0-beta-addrindex_armhf.deb (`SHA256: 7574c041b7eff3690963fd559cddbb16a303901de6a93fb05f4fafdce3f906f3  bitcoin-core-0.10.0_0.10.0-beta-addrindex_armhf.deb`)
