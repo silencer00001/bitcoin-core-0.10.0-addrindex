@@ -5,6 +5,8 @@ Bitcoin Core v0.10.0.0 with addrindex (Binaries)
 
 **NOTICE**:
 * On Jan 9, 2015 Counterparty started reccommending deterministically built Bitcoin Core 0.10.0 binaries from [this Github repo](https://github.com/btcdrak/bitcoin/releases/tag/addrindex-0.10.0). 
+* It is important to install (or rebuild) a recent 0.10.0 build that uses OpenSSL 1.0.1k (or older release with backported fixes).
+* Since mid January Federated Node setup scripts from `develop` branch of `counterparty_build` download and install Bitcoin Core v0.10.0 from above source.  Starting with counterpartyd v9.49.4 (when released) you should use Bitcoin Core v0.10.0.
 
 **Q: What's this?** 
 
