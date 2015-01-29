@@ -5,8 +5,8 @@ Bitcoin Core v0.10.0.0 with addrindex (Binaries)
 
 **NOTICE**:
 * On Jan 9, 2015 Counterparty started reccommending deterministically built Bitcoin Core 0.10.0 binaries from [this Github repo](https://github.com/btcdrak/bitcoin/releases). 
-* It is important to install (or rebuild) a recent 0.10.0 build that uses OpenSSL 1.0.1k (or older release with backported fixes).
-* Since mid January Federated Node setup scripts from `develop` branch of `counterparty_build` download and install Bitcoin Core v0.10.0 from above source.  Starting with counterpartyd v9.49.4 (when released) you should use Bitcoin Core v0.10.0.
+* It is important to install (or rebuild) a recent 0.10.0 (rc2 or newer) build that uses OpenSSL 1.0.1k (or an version with fixes backported from that OpenSSL source code).
+* Since mid January Federated Node setup scripts from `develop` branch of `counterparty_build` download and install Bitcoin Core v0.10.0 from the above source. Starting with counterpartyd v9.49.4 (when released) users should exclusively use Bitcoin Core v0.10.0 releases.
 
 **Q: What's this?** 
 
@@ -137,12 +137,12 @@ bitcoind --conf="$HOME/.bitcoin/bitcoin.conf"
 ```
 
 ###Raspbian
-* Uninstall whatever other version of bitcoin-core or bitcoin-qt you may have
+* Uninstall whatever other version of bitcoin-core, bitcoin.addrindex, or bitcoin-qt you may have
 * Make sure you have (at least) these packages: libssl1.0.0, libgcc1, libprotobuf9, libminiupnpc10, libboost-filesystem1.55.0, libboost-chrono1.55.0, libboost-filesystem1.55.0, libboost-program-options1.55.0, libboost-system1.55.0, libboost-thread1.55.0, libboost-test1.55.0. This binary package wasn't built too smartly, so you need to be careful and "manually" ensure these dependencies are satisfied.
-* Install this binary with `sudo dpkg -i bitcoin-core-0.10.0_0.10.0-beta-addrindex_armhf.deb`
+* Install this binary with `sudo dpkg -i bitcoin-core-addrindex_0.10.0-rc2_armhf.deb`
 * Optionally create symbolic links (see the two `sudo ln -sf` rows in the Ubuntu section above)
-* Install and uninstall procedure is basically the same as on Ubuntu 14.04: if you have existing blockchain data, run once from the console with `-reindex`, etc. 
-* `rpcthreads` and `rpctimeout` could be set to a low value because of the less powerful hardware. In fact I would reccommend to use this only with testnet.
+* Install and uninstall procedure is basically the same as on Ubuntu 14.04: if you have existing blockchain data without addrindex, run once from the console with `-reindex`, etc. 
+* `rpcthreads` and `rpctimeout` could be set to a low value because of the less powerful hardware. In fact on Raspberry I would reccommend to use Bitcoin Core only on testnet.
 
 ##Downloads
 
@@ -158,4 +158,4 @@ bitcoind --conf="$HOME/.bitcoin/bitcoin.conf"
 ###Linux
 
 * Ubuntu 14.04 (No GUI, with wallet): https://www.dropbox.com/s/d4k6fe4j2x1ueep/bitcoin-core-addrindex_0.10.0-rc2-addrindex_amd64.deb (`SHA256: 772a006bbcb8f59844502bf102992b8af92dff3b6ac2fd9d0e000e94cfa9e540  bitcoin-core-addrindex_0.10.0-rc2-addrindex_amd64.deb`)
-* Rasbpian (Debian 8 (Jessie), no GUI, with wallet): https://www.dropbox.com/s/2cafu1ao8sfqhen/bitcoin-core-0.10.0_0.10.0-beta-addrindex_armhf.deb (`SHA256: 7574c041b7eff3690963fd559cddbb16a303901de6a93fb05f4fafdce3f906f3  bitcoin-core-0.10.0_0.10.0-beta-addrindex_armhf.deb`)
+* Rasbpian (Debian 8 (Jessie), no GUI, with wallet): https://www.dropbox.com/s/c0tt0622v61tjf9/bitcoin-core-addrindex_0.10.0-rc2_armhf.deb (`SHA256: ebad0ca46f391318a54725e4e04882bc416ac2620fce9ce4b5792df916b81ce7  bitcoin-core-addrindex_0.10.0-rc2_armhf.deb`)
