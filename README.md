@@ -4,15 +4,16 @@ Bitcoin Core v0.10.0.0 with addrindex (Binaries)
 ##Q&A
 
 **NOTICE**:
-* On Jan 9, 2015 Counterparty started reccommending deterministically built Bitcoin Core 0.10.0 binaries from [this Github repo](https://github.com/btcdrak/bitcoin/releases). 
-* It is important to install (or rebuild) a recent 0.10.0 (rc2 or newer) build that uses OpenSSL 1.0.1k (or an version with fixes backported from that OpenSSL source code).
-* Since mid January Federated Node setup scripts from `develop` branch of `counterparty_build` download and install Bitcoin Core v0.10.0 from the above source. Starting with counterpartyd v9.49.4 (when released) users should exclusively use Bitcoin Core v0.10.0 releases.
+* Since Jan 9, 2015 Counterparty reccommends deterministically built Bitcoin Core 0.10.0 binaries from [this Github repo](https://github.com/btcdrak/bitcoin/releases). 
+* Since mid January Federated Node setup scripts from `develop` branch of `counterparty_build` download and install the current Bitcoin Core v0.10.0 binary from the above source. Starting with counterparty-lib v9.49.4 users should exclusively use Bitcoin Core v0.10.0 releases. They are deterministically built using the Gitian build process and statically linked, so OpenSSL updates on the OS level are independent of these binaries.
 
 **Q: What's this?** 
 
 A: Various binaries of Bitcoin Core 0.10.0 with jmcorgan addrindex patch. It's very similar to what I put on the other page with binaries I built [here](https://github.com/rippler/btc-jmcorgan-addrindex-v0.9.2.0-fca268c-beta), but the only difference is that Bitcoin Core is v0.10.0.
 
-These can be used with [counterpartyd](https://github.com/CounterpartyXCP/counterpartyd) for Windows, Debian and Raspbian, but they can also be used stand-alone (but if you wanted to do that you'd probably want to download Bitcoin Core from the usual place like bitcoin.org rather than have a patched version).
+These can be used with [counterpartyd](https://github.com/CounterpartyXCP/counterpartyd) for Windows, Debian and Raspbian, but they can also be used stand-alone (but if you wanted to do that you'd probably want to download Bitcoin Core from the usual place like bitcoin.org rather than have a patched version). Since there are deterministically precompiled binaries available above, I recommend that those be used instead (except for Raspbian, because they are no binaries for it at the above site). This simple [cheat sheet](http://cryptoprophecies.com/blog/counterparty-lib-cheat-sheet/) can be used to help you figure out how to configure bitcoin core, counterparty-server and counterparty-client.
+
+If you use the Counterparty Federated Node Build script, **refer to its own documentation** because it does things differently to the stand-alone counterparty-lib, and also as indicated at the very top, it installs Bitcoin Core binaries on its own.
 
 **Q: Where did source code come from and how did you build the binaries?**  
 
