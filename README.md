@@ -4,8 +4,8 @@ Bitcoin Core v0.10.0.0 with addrindex (Binaries)
 ##Q&A
 
 **NOTICE**:
-* Since Jan 9, 2015 Counterparty reccommends deterministically built Bitcoin Core 0.10.0 binaries from [this Github repo](https://github.com/btcdrak/bitcoin/releases). 
-* Since mid January Federated Node setup scripts from `develop` branch of `counterparty_build` download and install the current Bitcoin Core v0.10.0 binary from the above source. Starting with counterparty-lib v9.49.4 users should exclusively use Bitcoin Core v0.10.0 releases. They are deterministically built using the Gitian build process and statically linked, so OpenSSL updates on the OS level are independent of these binaries.
+* Since Jan 9, 2015 the Counterparty Projects recommends deterministically built Bitcoin Core 0.10.0 binaries from [this Github repo](https://github.com/btcdrak/bitcoin/releases). 
+* Since mid January Federated Node setup scripts from `develop` branch of `counterparty_build` automaticallz download and install the current Bitcoin Core v0.10.0 binary from the above source. Starting with counterparty-lib v9.49.4 users should exclusively use Bitcoin Core v0.10.0 releases from the recommended source (linked above). They are deterministically built using the Gitian build process and statically linked, so OpenSSL updates on the OS level are independent of these binaries.
 
 **Q: What's this?** 
 
@@ -44,6 +44,8 @@ In terms of what this patch adds to Bitcoin Core 0.10.0, there are no gotchas. A
 If you want to be extra cautious, you can use a walletless version.
 
 ##Installation and Removal
+
+**NOTE**: This is for my own build. Once again, it is recommended to use binaries from https://github.com/btcdrak/bitcoin/releases instead of these here, unless you're on Raspbian.
 
 ###Windows
 
